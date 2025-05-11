@@ -145,40 +145,83 @@ body, #root {
 }
 
 .result img {
-  margin: 1.5rem 0 1rem 0;
-  border-radius: 12px;
   max-width: 100%;
-  box-shadow: 0 2px 16px 0 #00000022;
+  height: auto;
+  margin: 20px 0;
 }
 
 .result {
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.result-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
 }
 
-.result button {
+.result-btn-main {
   background: #FFE066;
-  color: #1A1A1A;
-  border: none;
-  border-radius: 8px;
-  padding: 0.75em 1.5em;
-  font-size: 1.1em;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 1.5rem;
-  transition: background 0.2s, color 0.2s;
-  width: 100%;
-  max-width: 350px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  color: #232323;
+  font-weight: 700;
+  margin-bottom: 28px;
 }
 
-.result h2, .result p {
-  text-align: center;
+.result-btn-tg {
+  background: #229ED9;
+  color: #fff;
+}
+
+.result-btn-jobboard {
+  background: #FF8DA1;
+  color: #232323;
+}
+
+.result-buttons-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.result-btn {
+  background: #FF8DA1;
+  color: #232323;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
   width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 2px 8px 0 #0001;
+  margin: 0 auto;
+}
+
+.result-buttons-row .result-btn {
+  width: 50%;
+  max-width: none;
+}
+
+.result-btn:hover {
+  background: #FFE066;
+  color: #232323;
+  box-shadow: 0 4px 16px 0 #0002;
+}
+
+.share-msg {
+  margin-top: 10px;
+  color: #4CAF50;
+  font-size: 14px;
 }
 
 .back-row {
@@ -313,15 +356,6 @@ body, #root {
   background: #FF8DA1;
   color: #232323;
   box-shadow: 0 4px 16px 0 #0002;
-}
-
-.share-msg {
-  color: #FF8DA1;
-  font-size: 1em;
-  margin-bottom: 0.5rem;
-  margin-top: 0.2rem;
-  font-weight: 600;
-  text-align: center;
 }
 
 .result-vacancy {
