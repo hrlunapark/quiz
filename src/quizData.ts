@@ -117,7 +117,7 @@ Tilde — это applied-interpretability стартап. Они делают п
 
 Зарплата $150k–220k + много equity. Офис в США, помогают с визой, возможен ремоут.`, 
 image: '/lunaparkmlquiz/assets/results/tilde2.png' },
-  Recraft1: { title: 'ML Engineer в Recraft', description: `Вы — ML Engineer в Recraft!
+  Recraft1: { title: 'Recraft1', header: 'ML Engineer в Recraft', description: `Вы — ML Engineer в Recraft!
 
 Recraft — стартап из Лондона, который делает AI-инструмент для дизайнеров. Их собственная text-to-image модель уже успела обойти на арене DALL-E, Midjourney и Flux. Больше 3 миллионов пользователей, недавний Series B раунд на $30M, и очень крутая техническая команда во главе с бывшей главой разработки CatBoost.
 
