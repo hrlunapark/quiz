@@ -150,7 +150,7 @@ function App() {
         })()}
         <div className="result-buttons">
           <div className="result-buttons-row" style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <a className="result-btn result-btn-main" href={telegramLinks[result.title]} target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.5em', flex: 1, textAlign: 'center' }}>Откликнуться</a>
+            <a className="result-btn result-btn-main" href={telegramLinks[result.title as keyof typeof telegramLinks]} target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.5em', flex: 1, textAlign: 'center' }}>Откликнуться</a>
             <a className="result-btn result-btn-tg" href="https://t.me/hrlunapark" target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.5em', flex: 1, textAlign: 'center' }}>Больше вакансий</a>
           </div>
           <button className="result-btn" onClick={handleShare}>Поделиться результатом</button>
