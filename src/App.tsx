@@ -36,7 +36,7 @@ function App() {
   const [answers, setAnswers] = useState<number[]>([])
   const [showResult, setShowResult] = useState(false)
   const [started, setStarted] = useState(false)
-  const [shareMsg, setShareMsg] = useState('');
+  const [buttonText, setButtonText] = useState('Поделиться результатом');
 
   if (!started) {
     return (
@@ -94,16 +94,17 @@ function App() {
 
   if (showResult) {
     const { result, key } = getResult()
+    const isMobile = window.matchMedia('(pointer: coarse)').matches
     const shareText = `Я — ${result.header} в квизе "Какая ты ML-вакансия Лунапарка?" Пройди и ты! https://lunapark.agency/quiz\n\n${result.description}\nОткликнуться: t.me/${result.contact}`;
     const handleShare = async () => {
-      if (navigator.share) {
+      if (isMobile && navigator.share) {
         try {
           await navigator.share({ text: shareText });
         } catch {}
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(shareText);
-        setShareMsg('Скопировано!');
-        setTimeout(() => setShareMsg(''), 2000);
+        setButtonText('✨Скопировано!✨');
+        setTimeout(() => setButtonText('Поделиться результатом'), 2000);
       }
     };
     return (
@@ -154,13 +155,13 @@ function App() {
             <a className="result-btn result-btn-tg" href="https://t.me/hrlunapark" target="_blank" rel="noopener noreferrer" style={{ flex: '1', textAlign: 'center', margin: '5px' }}>Больше вакансий</a>
           </div>
           <div className="result-buttons-row" style={{ display: 'flex', justifyContent: 'center' }}>
-            <button className="result-btn" onClick={handleShare} style={{ flex: '1', textAlign: 'center', margin: '5px' }}>Поделиться результатом</button>
+            <button className="result-btn" onClick={handleShare} style={{ flex: '1', textAlign: 'center', margin: '5px' }}>{buttonText}</button>
           </div>
           <div className="result-buttons-row" style={{ display: 'flex', justifyContent: 'center' }}>
             <button className="result-btn" onClick={() => { setCurrent(0); setAnswers([]); setShowResult(false); }} style={{ flex: '1', textAlign: 'center', margin: '5px' }}>Пройти ещё раз</button>
           </div>
         </div>
-        {shareMsg && <div className="share-msg">{shareMsg}</div>}
+        {/* {shareMsg && <div className="share-msg">{shareMsg}</div>} */}
       </div>
     )
   }
