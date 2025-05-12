@@ -150,11 +150,15 @@ function App() {
         })()}
         <div className="result-buttons">
           <div className="result-buttons-row" style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <a className="result-btn result-btn-main" href={telegramLinks[result.title as keyof typeof telegramLinks]} target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.5em', flex: 1, textAlign: 'center' }}>Откликнуться</a>
-            <a className="result-btn result-btn-tg" href="https://t.me/hrlunapark" target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.5em', flex: 1, textAlign: 'center' }}>Больше вакансий</a>
+            <a className="result-btn result-btn-main" href={telegramLinks[result.title as keyof typeof telegramLinks]} target="_blank" rel="noopener noreferrer" style={{ flex: '1', textAlign: 'center', margin: '5px' }}>Откликнуться</a>
+            <a className="result-btn result-btn-tg" href="https://t.me/hrlunapark" target="_blank" rel="noopener noreferrer" style={{ flex: '1', textAlign: 'center', margin: '5px' }}>Больше вакансий</a>
           </div>
-          <button className="result-btn" onClick={handleShare}>Поделиться результатом</button>
-          <button className="result-btn" onClick={() => { setCurrent(0); setAnswers([]); setShowResult(false); }}>Пройти ещё раз</button>
+          <div className="result-buttons-row" style={{ display: 'flex', justifyContent: 'center' }}>
+            <button className="result-btn" onClick={handleShare} style={{ flex: '1', textAlign: 'center', margin: '5px' }}>Поделиться результатом</button>
+          </div>
+          <div className="result-buttons-row" style={{ display: 'flex', justifyContent: 'center' }}>
+            <button className="result-btn" onClick={() => { setCurrent(0); setAnswers([]); setShowResult(false); }} style={{ flex: '1', textAlign: 'center', margin: '5px' }}>Пройти ещё раз</button>
+          </div>
         </div>
         {shareMsg && <div className="share-msg">{shareMsg}</div>}
       </div>

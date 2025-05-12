@@ -164,28 +164,10 @@ body, #root {
   margin-top: 24px;
 }
 
-.result-btn-main {
-  background: #FFE066;
-  color: #232323;
-  font-weight: 700;
-  margin-bottom: 28px;
-}
-
-.result-btn-tg {
-  background: #229ED9;
-  color: #fff;
-}
-
-.result-btn-jobboard {
-  background: #FF8DA1;
-  color: #232323;
-}
-
 .result-buttons-row {
   display: flex;
   gap: 12px;
-  justify-content: center;
-  margin-bottom: 28px;
+  justify-content: center; /* Center buttons in their row */
 }
 
 .result-btn {
@@ -200,16 +182,14 @@ body, #root {
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.3s;
-  width: 100%;
-  max-width: 500px;
+  width: 100%; /* Make buttons take full width of their container */
+  max-width: 400px; /* Set a max width for buttons */
   text-align: center;
   box-shadow: 0 2px 8px 0 #0001;
-  margin: 0 auto;
 }
 
 .result-buttons-row .result-btn {
-  width: 50%;
-  max-width: none;
+  flex: 1; /* Allow buttons to grow equally in their row */
 }
 
 .result-btn:hover {
@@ -221,7 +201,7 @@ body, #root {
 .share-msg {
   margin-top: 10px;
   color: #4CAF50;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .back-row {
@@ -336,26 +316,6 @@ body, #root {
 .vacancy-link:hover {
   background: #FF8DA1;
   color: #232323;
-}
-
-.share-btn {
-  background: #FFE066;
-  color: #232323;
-  border: none;
-  border-radius: 12px;
-  padding: 0.8em 2em;
-  font-size: 1.1em;
-  font-weight: 700;
-  cursor: pointer;
-  margin: 1.2rem 0 0.5rem 0;
-  box-shadow: 0 2px 8px 0 #0001;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  display: block;
-}
-.share-btn:hover {
-  background: #FF8DA1;
-  color: #232323;
-  box-shadow: 0 4px 16px 0 #0002;
 }
 
 .result-vacancy {
