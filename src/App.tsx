@@ -94,7 +94,7 @@ function App() {
 
   if (showResult) {
     const { result, key } = getResult()
-    const shareText = `Я — ${result.title} в квизе "Какая ты ML-вакансия Лунапарка?" Пройди и ты!`;
+    const shareText = `Я — ${result.header} в квизе "Какая ты ML-вакансия Лунапарка?" Пройди и ты! https://lunapark.agency/quiz\n\n${result.description}\nОткликнуться: t.me/${result.contact}`;
     const handleShare = async () => {
       if (navigator.share) {
         try {

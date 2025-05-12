@@ -180,7 +180,9 @@ body, #root {
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
   transition: background-color 0.3s;
   width: 100%; /* Make buttons take full width of their container */
   max-width: 400px; /* Set a max width for buttons */
