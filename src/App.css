@@ -363,3 +363,16 @@ body, #root {
   margin-top: 0.2rem;
   display: block;
 }
+
+.result-description-block {
+  text-align: left;
+  margin: 0 auto 18px auto;
+  max-width: 600px;
+}
+.result-description-block p {
+  text-align: left;
+}
+.result-description-block ul {
+  text-align: left;
+  margin-left: 0;
+}

@@ -6,16 +6,30 @@ import './App.css'
 const resultImages: Record<ResultKey, string> = {
   Tilde1: '/lunaparkmlquiz/assets/results/tilde1.png',
   Tilde2: '/lunaparkmlquiz/assets/results/tilde2.png',
-  Recraft1: '/lunaparkmlquiz/assets/results/recraft1.png',
-  Recraft2: '/lunaparkmlquiz/assets/results/recraft2.png',
-  Tzafon1: '/lunaparkmlquiz/assets/results/recraft1.png',
-  Tzafon2: '/lunaparkmlquiz/assets/results/tzafon2.png',
+  Recraft1: '/lunaparkmlquiz/assets/results/recraft1.png', // Update this
+  Recraft2: '/lunaparkmlquiz/assets/results/recraft2.png', // Update this
+  Tzafon1: '/lunaparkmlquiz/assets/results/tzafon1.png', // Correct path
+  Tzafon2: '/lunaparkmlquiz/assets/results/tzafon2.png', // Correct path
   Atla: '/lunaparkmlquiz/assets/results/atla.png',
-  Safer: '/lunaparkmlquiz/assets/results/recraft1.png',
+  Safer: '/lunaparkmlquiz/assets/results/safer.png', // Correct path
   Eternis: '/lunaparkmlquiz/assets/results/eternis.png',
-  Epoch: '/lunaparkmlquiz/assets/results/recraft1.png',
+  Epoch: '/lunaparkmlquiz/assets/results/epoch.png', // Correct path
   Metr: '/lunaparkmlquiz/assets/results/metr.png',
-}
+};
+
+const telegramLinks = {
+  Eternis: "https://t.me/masheau",
+  Tzafon1: "https://t.me/masheau",
+  Tzafon2: "https://t.me/masheau",
+  Tilde1: "https://t.me/masheau",
+  Tilde2: "https://t.me/masheau",
+  Atla: "https://t.me/masheau",
+  Metr: "https://t.me/masheau",
+  Epoch: "https://t.me/owlkov",
+  Recraft1: "https://t.me/owlkov",
+  Recraft2: "https://t.me/owlkov",
+  Safer: "https://t.me/AlbinaMakarova",
+};
 
 function App() {
   const [current, setCurrent] = useState(0)
@@ -96,12 +110,48 @@ function App() {
       <div className="result">
         <h2>Ваш результат: {result.title}</h2>
         <img src={resultImages[key]} alt={result.title} />
-        <p>{result.description}</p>
+        {(() => {
+          const desc = result.description || '';
+          const [first, ...rest] = desc.split('!');
+          const restText = rest.join('!').trim();
+          let beforeReq = restText;
+          let reqBlock = '';
+          if (restText.includes('Требования:')) {
+            [beforeReq, reqBlock] = restText.split('Требования:');
+          }
+          let reqList: string[] = [];
+          let afterReq = '';
+          if (reqBlock) {
+            // Обрезаем требования по ключевым словам
+            const reqEndIdx = reqBlock.search(/(Зарплата|Условия|Вилка|Платят)/i);
+            let reqOnly = reqBlock;
+            if (reqEndIdx !== -1) {
+              reqOnly = reqBlock.slice(0, reqEndIdx);
+              afterReq = reqBlock.slice(reqEndIdx).trim();
+            }
+            reqList = reqOnly
+              .split(/[;•\n]/)
+              .map(s => s.trim().replace(/^[-—•\s]+/, '')) // убираем дефисы, тире, точки и пробелы в начале
+              .filter(Boolean);
+          }
+          return <div className="result-description-block">
+            <p><b>{first.trim()}!</b></p>
+            {beforeReq && <p>{beforeReq.trim()}</p>}
+            {reqList.length > 0 && (
+              <div style={{textAlign: 'left', margin: '18px 0 10px 0'}}>
+                <b>Требования:</b>
+                <ul style={{margin: '8px 0 0 18px'}}>
+                  {reqList.map((item, idx) => <li key={idx}>{item}</li>)}
+                </ul>
+              </div>
+            )}
+            {afterReq && <p>{afterReq}</p>}
+          </div>;
+        })()}
         <div className="result-buttons">
-          <a className="result-btn result-btn-main" href="https://t.me/hrlunapark" target="_blank" rel="noopener noreferrer">Откликнуться на вакансию</a>
-          <div className="result-buttons-row">
-            <a className="result-btn result-btn-tg" href="https://t.me/hrlunapark" target="_blank" rel="noopener noreferrer">Телеграм</a>
-            <a className="result-btn result-btn-jobboard" href="https://lunapark.agency/jobboard" target="_blank" rel="noopener noreferrer">Джобборд</a>
+          <div className="result-buttons-row" style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <a className="result-btn result-btn-main" href={telegramLinks[result.title]} target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.5em', flex: 1, textAlign: 'center' }}>Откликнуться</a>
+            <a className="result-btn result-btn-tg" href="https://t.me/hrlunapark" target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.5em', flex: 1, textAlign: 'center' }}>Больше вакансий</a>
           </div>
           <button className="result-btn" onClick={handleShare}>Поделиться результатом</button>
           <button className="result-btn" onClick={() => { setCurrent(0); setAnswers([]); setShowResult(false); }}>Пройти ещё раз</button>
