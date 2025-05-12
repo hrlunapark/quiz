@@ -94,7 +94,7 @@ function App() {
 
   if (showResult) {
     const { result, key } = getResult()
-    const shareText = `Я — ${result.title} в квизе "Какая ты ML-вакансия Лунапарка?" Пройди и ты: https://lunapark.agency/quiz`;
+    const shareText = `Я — ${result.title} в квизе "Какая ты ML-вакансия Лунапарка?" Пройди и ты!`;
     const handleShare = async () => {
       if (navigator.share) {
         try {
@@ -108,7 +108,7 @@ function App() {
     };
     return (
       <div className="result">
-        <h2>Ваш результат: {result.title}</h2>
+        <h2>{result.header}</h2>
         <img src={resultImages[key]} alt={result.title} />
         {(() => {
           const desc = result.description || '';
