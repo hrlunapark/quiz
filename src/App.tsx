@@ -1,4 +1,4 @@
-// import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { quizQuestions, type ResultKey, resultPlaceholders } from './quizData'
 import './App.css'
 
