@@ -107,7 +107,7 @@ function App() {
   if (showResult) {
     const { result, key } = getResult()
     const isMobile = window.matchMedia('(pointer: coarse)').matches
-    const shareText = `Я — ${result.header} в квизе "Какая ты ML-вакансия Лунапарка?" Пройди и ты! https://lunapark.agency/quiz\n\n${result.description}\nОткликнуться: t.me/${result.contact}`;
+    const shareText = `Я — ${result.header} в квизе "Какая ты ML-вакансия Лунапарка?" Пройди и ты! https://hrlunapark.github.io/quiz/\n\n${result.description}\nОткликнуться: t.me/${result.contact}`;
     const handleShare = async () => {
       if (isMobile && navigator.share) {
         try {
