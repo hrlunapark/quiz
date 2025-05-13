@@ -4,17 +4,17 @@ import './App.css'
 
 // Map of result keys to their corresponding images
 const resultImages: Record<ResultKey, string> = {
-  Tilde1: '/lunaparkmlquiz/assets/results/tilde1.png',
-  Tilde2: '/lunaparkmlquiz/assets/results/tilde2.png',
-  Recraft1: '/lunaparkmlquiz/assets/results/recraft1.png', // Update this
-  Recraft2: '/lunaparkmlquiz/assets/results/recraft2.png', // Update this
-  Tzafon1: '/lunaparkmlquiz/assets/results/tzafon1.png', // Correct path
-  Tzafon2: '/lunaparkmlquiz/assets/results/tzafon2.png', // Correct path
-  Atla: '/lunaparkmlquiz/assets/results/atla.png',
-  Safer: '/lunaparkmlquiz/assets/results/safer.png', // Correct path
-  Eternis: '/lunaparkmlquiz/assets/results/eternis.png',
-  Epoch: '/lunaparkmlquiz/assets/results/epoch.png', // Correct path
-  Metr: '/lunaparkmlquiz/assets/results/metr.png',
+  Tilde1: '/quiz/assets/results/tilde1.png',
+  Tilde2: '/quiz/assets/results/tilde2.png',
+  Recraft1: '/quiz/assets/results/recraft1.png', // Update this
+  Recraft2: '/quiz/assets/results/recraft2.png', // Update this
+  Tzafon1: '/quiz/assets/results/tzafon1.png', // Correct path
+  Tzafon2: '/quiz/assets/results/tzafon2.png', // Correct path
+  Atla: '/quiz/assets/results/atla.png',
+  Safer: '/quiz/assets/results/safer.png', // Correct path
+  Eternis: '/quiz/assets/results/eternis.png',
+  Epoch: '/quiz/assets/results/epoch.png', // Correct path
+  Metr: '/quiz/assets/results/metr.png',
 };
 
 const telegramLinks = {
