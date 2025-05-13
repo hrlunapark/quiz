@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { quizQuestions, type ResultKey, resultPlaceholders } from './quizData'
 import './App.css'
 
@@ -37,6 +37,13 @@ function App() {
   const [showResult, setShowResult] = useState(false)
   const [started, setStarted] = useState(false)
   const [buttonText, setButtonText] = useState('Поделиться результатом');
+
+  
+  useEffect(() => {
+    const height = document.documentElement.scrollHeight;
+    window.parent.postMessage({ type: 'setHeight', height }, '*');
+  }, []);
+  
 
   if (!started) {
     return (
