@@ -37,13 +37,18 @@ function App() {
   const [showResult, setShowResult] = useState(false)
   const [started, setStarted] = useState(false)
   const [buttonText, setButtonText] = useState('Поделиться результатом');
-
   
-  useEffect(() => {
+
+ useEffect(() => {
+  const resizeObserver = new ResizeObserver(() => {
     const height = document.documentElement.scrollHeight;
     window.parent.postMessage({ type: 'setHeight', height }, '*');
-  }, []);
-  
+  });
+
+  resizeObserver.observe(document.body);
+
+  return () => resizeObserver.disconnect();
+}, []);
 
   if (!started) {
     return (
