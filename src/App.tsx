@@ -39,16 +39,16 @@ function App() {
   const [buttonText, setButtonText] = useState('Поделиться результатом');
   
 
- useEffect(() => {
-  const resizeObserver = new ResizeObserver(() => {
-    const height = document.documentElement.scrollHeight;
-    window.parent.postMessage({ type: 'setHeight', height }, '*');
-  });
+//  useEffect(() => {
+//   const resizeObserver = new ResizeObserver(() => {
+//     const height = document.documentElement.scrollHeight;
+//     window.parent.postMessage({ type: 'setHeight', height }, '*');
+//   });
 
-  resizeObserver.observe(document.body);
+//   resizeObserver.observe(document.body);
 
-  return () => resizeObserver.disconnect();
-}, []);
+//   return () => resizeObserver.disconnect();
+// }, []);
 
   if (!started) {
     return (
